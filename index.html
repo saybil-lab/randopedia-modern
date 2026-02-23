@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Randopedia - Grande Escapade du Sud 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'display': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'sand': '#E8DCC4',
+                        'desert': '#C4A77D',
+                        'terracotta': '#C75B39',
+                        'night': '#1A1A2E',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-overlay {
+            background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);
+        }
+        .day-card:hover {
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+<body class="font-sans bg-sand text-night">
+    
+    <!-- Hero Section -->
+    <header class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1509023464722-18d996393ca8?q=80&w=2070" 
+                 alt="Dunes du Sahara" 
+                 class="w-full h-full object-cover">
+            <div class="gradient-overlay absolute inset-0"></div>
+        </div>
+        <div class="relative z-10 text-center text-white px-4 max-w-4xl">
+            <p class="text-desert uppercase tracking-[0.3em] mb-4 text-sm font-medium">Club Randopedia présente</p>
+            <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                Grande Escapade du Sud
+            </h1>
+            <p class="text-xl md:text-2xl mb-2 text-sand/90">D'Errachidia aux portes du Sahara</p>
+            <p class="text-lg text-white/70 mb-8">Errachidia • Merzouga • Dadès • Ouarzazate • Zagora</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <span class="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full text-lg">
+                    📅 25 - 29 mars 2025
+                </span>
+                <span class="bg-terracotta px-6 py-3 rounded-full text-lg font-medium">
+                    5 jours / 4 nuits
+                </span>
+            </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+            <svg class="w-8 h-8 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Introduction -->
+    <section class="py-20 px-4">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="font-display text-3xl md:text-4xl font-semibold mb-8">Une aventure inoubliable</h2>
+            <p class="text-lg text-night/70 leading-relaxed">
+                C'est avec un immense plaisir que le Club Randopedia vous convie à une aventure inoubliable 
+                au cœur du sud marocain. Nous vous proposons une escapade merveilleuse, à la découverte 
+                des trésors cachés d'Errachidia à Zagora, qui promet d'être aussi enrichissante que dépaysante.
+            </p>
+            <div class="grid grid-cols-3 gap-8 mt-12">
+                <div class="text-center">
+                    <div class="text-4xl mb-2">🏜️</div>
+                    <p class="font-medium">Dunes de Merzouga</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl mb-2">🏔️</div>
+                    <p class="font-medium">Gorges du Todgha</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl mb-2">🌴</div>
+                    <p class="font-medium">Vallée du Drâa</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programme -->
+    <section class="py-20 px-4 bg-white">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="font-display text-3xl md:text-4xl font-semibold text-center mb-16">Programme détaillé</h2>
+            
+            <!-- Day 1 -->
+            <div class="day-card bg-sand/30 rounded-2xl p-8 mb-6 transition-all duration-300 border border-desert/20">
+                <div class="flex flex-col md:flex-row md:items-start gap-6">
+                    <div class="flex-shrink-0 text-center md:text-left">
+                        <span class="inline-block bg-terracotta text-white text-sm font-bold px-4 py-2 rounded-full">JOUR 1</span>
+                        <p class="text-night/60 mt-2 font-medium">Mar. 25 mars</p>
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="font-display text-2xl font-semibold mb-4">Casablanca → Errachidia → Merzouga</h3>
+                        <div class="space-y-3 text-night/70">
+                            <p><span class="font-semibold text-night">06h30</span> — Rendez-vous à l'aéroport Mohamed V</p>
+                            <p><span class="font-semibold text-night">08h00</span> — Décollage vol RAM vers Errachidia</p>
+                            <p><span class="font-semibold text-night">10h00</span> — Arrivée à Errachidia, accueil et transfert</p>
+                            <p><span class="font-semibold text-night">12h30</span> — Déjeuner à Erfoud, porte du désert</p>
+                            <p><span class="font-semibold text-night">14h30</span> — Visite du musée des fossiles</p>
+                            <p><span class="font-semibold text-night">16h00</span> — Installation à l'auberge de Merzouga</p>
+                            <p><span class="font-semibold text-night">18h30</span> — Randonnée dans les dunes pour le coucher de soleil</p>
+                            <p><span class="font-semibold text-night">20h30</span> — Dîner et soirée Gnawa sous les étoiles</p>
+                        </div>
+                        <div class="mt-4 flex items-center text-desert">
+                            <span class="text-xl mr-2">🏨</span>
+                            <span class="font-medium">Nuit à Merzouga</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 2 -->
+            <div class="day-card bg-sand/30 rounded-2xl p-8 mb-6 transition-all duration-300 border border-desert/20">
+                <div class="flex flex-col md:flex-row md:items-start gap-6">
+                    <div class="flex-shrink-0 text-center md:text-left">
+                        <span class="inline-block bg-terracotta text-white text-sm font-bold px-4 py-2 rounded-full">JOUR 2</span>
+                        <p class="text-night/60 mt-2 font-medium">Mer. 26 mars</p>
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="font-display text-2xl font-semibold mb-4">Merzouga — Immersion Saharienne</h3>
+                        <div class="space-y-3 text-night/70">
+                            <p><span class="font-semibold text-night">06h30</span> — Lever de soleil sur les dunes (optionnel)</p>
+                            <p><span class="font-semibold text-night">08h00</span> — Petit-déjeuner à l'auberge</p>
+                            <p><span class="font-semibold text-night">09h30</span> — Excursion 4x4 dans le désert – traces du Paris-Dakar</p>
+                            <p class="pl-8 text-sm">• Village de Khamilia (musique Gnawa)<br>• Pause thé chez les nomades<br>• Découverte des oasis cachées</p>
+                            <p><span class="font-semibold text-night">13h00</span> — Déjeuner à Rissani – Medfouna (pizza berbère)</p>
+                            <p><span class="font-semibold text-night">15h00</span> — Visite du souk et du mausolée Moulay Ali Cherif</p>
+                            <p><span class="font-semibold text-night">17h00</span> — Retour à Merzouga, temps libre</p>
+                            <p><span class="font-semibold text-night">20h00</span> — Dîner à l'auberge</p>
+                        </div>
+                        <div class="mt-4 flex items-center text-desert">
+                            <span class="text-xl mr-2">🏨</span>
+                            <span class="font-medium">Nuit à Merzouga</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 3 -->
+            <div class="day-card bg-sand/30 rounded-2xl p-8 mb-6 transition-all duration-300 border border-desert/20">
+                <div class="flex flex-col md:flex-row md:items-start gap-6">
+                    <div class="flex-shrink-0 text-center md:text-left">
+                        <span class="inline-block bg-terracotta text-white text-sm font-bold px-4 py-2 rounded-full">JOUR 3</span>
+                        <p class="text-night/60 mt-2 font-medium">Jeu. 27 mars</p>
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="font-display text-2xl font-semibold mb-4">Merzouga → Boumalne Dadès</h3>
+                        <div class="space-y-3 text-night/70">
+                            <p><span class="font-semibold text-night">08h00</span> — Petit-déjeuner et check-out</p>
+                            <p><span class="font-semibold text-night">09h00</span> — Départ vers les Gorges du Todgha</p>
+                            <p><span class="font-semibold text-night">10h30</span> — Balade entre les falaises (300m de haut)</p>
+                            <p><span class="font-semibold text-night">12h30</span> — Déjeuner dans un riad à Tinghir</p>
+                            <p><span class="font-semibold text-night">14h30</span> — Route panoramique des Mille Kasbahs</p>
+                            <p><span class="font-semibold text-night">16h30</span> — Randonnée Vallée du Dadès (1h30)</p>
+                            <p class="pl-8 text-sm">• Canyon spectaculaire<br>• Formation "Pattes de Singe"<br>• Kasbahs abandonnées</p>
+                            <p><span class="font-semibold text-night">19h00</span> — Installation à la Kasbah</p>
+                            <p><span class="font-semibold text-night">20h30</span> — Dîner avec animation folklorique</p>
+                        </div>
+                        <div class="mt-4 flex items-center text-desert">
+                            <span class="text-xl mr-2">🏨</span>
+                            <span class="font-medium">Nuit à Boumalne Dadès</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 4 -->
+            <div class="day-card bg-sand/30 rounded-2xl p-8 mb-6 transition-all duration-300 border border-desert/20">
+                <div class="flex flex-col md:flex-row md:items-start gap-6">
+                    <div class="flex-shrink-0 text-center md:text-left">
+                        <span class="inline-block bg-terracotta text-white text-sm font-bold px-4 py-2 rounded-full">JOUR 4</span>
+                        <p class="text-night/60 mt-2 font-medium">Ven. 28 mars</p>
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="font-display text-2xl font-semibold mb-4">Boumalne Dadès → Ouarzazate</h3>
+                        <div class="space-y-3 text-night/70">
+                            <p><span class="font-semibold text-night">08h30</span> — Petit-déjeuner et check-out</p>
+                            <p><span class="font-semibold text-night">09h30</span> — Route vers Ouarzazate, "Hollywood africaine"</p>
+                            <p><span class="font-semibold text-night">10h30</span> — Arrêt Vallée des Roses (selon saison)</p>
+                            <p><span class="font-semibold text-night">12h00</span> — Visite Studios Atlas</p>
+                            <p class="pl-8 text-sm">Décors de Gladiator, Game of Thrones, Lawrence d'Arabie</p>
+                            <p><span class="font-semibold text-night">13h30</span> — Déjeuner en ville</p>
+                            <p><span class="font-semibold text-night">15h30</span> — Visite Kasbah de Taourirt</p>
+                            <p><span class="font-semibold text-night">17h00</span> — Temps libre, shopping artisanal</p>
+                            <p><span class="font-semibold text-night">20h30</span> — Dîner</p>
+                        </div>
+                        <div class="mt-4 flex items-center text-desert">
+                            <span class="text-xl mr-2">🏨</span>
+                            <span class="font-medium">Nuit à Ouarzazate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 5 -->
+            <div class="day-card bg-sand/30 rounded-2xl p-8 transition-all duration-300 border border-desert/20">
+                <div class="flex flex-col md:flex-row md:items-start gap-6">
+                    <div class="flex-shrink-0 text-center md:text-left">
+                        <span class="inline-block bg-terracotta text-white text-sm font-bold px-4 py-2 rounded-full">JOUR 5</span>
+                        <p class="text-night/60 mt-2 font-medium">Sam. 29 mars</p>
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="font-display text-2xl font-semibold mb-4">Ouarzazate → Zagora → Casablanca</h3>
+                        <div class="space-y-3 text-night/70">
+                            <p><span class="font-semibold text-night">07h00</span> — Petit-déjeuner matinal et check-out</p>
+                            <p><span class="font-semibold text-night">07h30</span> — Départ vers Zagora via la vallée du Drâa</p>
+                            <p><span class="font-semibold text-night">09h30</span> — Traversée de la plus grande palmeraie du Maroc</p>
+                            <p><span class="font-semibold text-night">11h00</span> — Arrivée à Zagora – photo devant "Tombouctou 52 jours"</p>
+                            <p><span class="font-semibold text-night">12h00</span> — Déjeuner à Zagora</p>
+                            <p><span class="font-semibold text-night">14h00</span> — Route vers l'aéroport d'Ouarzazate</p>
+                            <p><span class="font-semibold text-night">17h00</span> — Enregistrement à l'aéroport</p>
+                            <p><span class="font-semibold text-night">19h00</span> — Décollage vol RAM vers Casablanca</p>
+                            <p><span class="font-semibold text-night">20h00</span> — Arrivée à Casablanca</p>
+                        </div>
+                        <div class="mt-4 flex items-center text-terracotta">
+                            <span class="text-xl mr-2">✈️</span>
+                            <span class="font-medium">Fin du voyage</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tarifs -->
+    <section class="py-20 px-4 bg-night text-white">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="font-display text-3xl md:text-4xl font-semibold text-center mb-12">Frais de participation</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center">
+                    <p class="text-sand uppercase tracking-wider text-sm mb-2">Membres</p>
+                    <p class="font-display text-5xl font-bold mb-2">4 100 <span class="text-2xl">dhs</span></p>
+                    <p class="text-white/60">chambre double/triple</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center">
+                    <p class="text-sand uppercase tracking-wider text-sm mb-2">Invités</p>
+                    <p class="font-display text-5xl font-bold mb-2">4 300 <span class="text-2xl">dhs</span></p>
+                    <p class="text-white/60">chambre double/triple</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-sand">✓ La cotisation comprend</h3>
+                    <ul class="space-y-2 text-white/80">
+                        <li>✈️ Vol A/R avec la RAM</li>
+                        <li>🚌 Transport en autocar touristique</li>
+                        <li>🏨 Hébergement 4 nuitées</li>
+                        <li>🍽️ Pension complète</li>
+                        <li>🚙 Excursion 4x4 à Merzouga</li>
+                        <li>👤 Guide professionnel agréé</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-sand">✗ Non inclus</h3>
+                    <ul class="space-y-2 text-white/80">
+                        <li>• Boissons hors repas</li>
+                        <li>• Transfert Rabat ↔ Aéroport (250 dhs A/R)</li>
+                        <li>• Supplément single : 950 dhs</li>
+                        <li>• Balade à dos de chameau : 100 dhs</li>
+                        <li>• Pourboires</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Équipements -->
+    <section class="py-20 px-4">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="font-display text-3xl md:text-4xl font-semibold mb-8">Équipements recommandés</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <div class="text-3xl mb-2">🧢</div>
+                    <p class="text-sm text-night/70">Casquette & écran solaire</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <div class="text-3xl mb-2">👟</div>
+                    <p class="text-sm text-night/70">Chaussures de rando</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <div class="text-3xl mb-2">🩱</div>
+                    <p class="text-sm text-night/70">Maillot de bain</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <div class="text-3xl mb-2">🧥</div>
+                    <p class="text-sm text-night/70">Vêtement chaud</p>
+                </div>
+            </div>
+            <p class="mt-8 text-desert font-medium">+ Votre positivité et votre sourire 😊</p>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 px-4 bg-terracotta text-white">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="font-display text-3xl md:text-4xl font-semibold mb-4">Prêt pour l'aventure ?</h2>
+            <p class="text-white/80 mb-8">Les places sont limitées. Premier inscrit, premier servi !</p>
+            <p class="text-sm text-white/60 mb-8">Avance de 2 000 dhs requise pour confirmer votre participation</p>
+            <a href="#" class="inline-block bg-white text-terracotta font-semibold px-8 py-4 rounded-full hover:bg-sand transition-colors">
+                S'inscrire maintenant
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-4 bg-night text-white">
+        <div class="max-w-3xl mx-auto text-center">
+            <h3 class="font-display text-2xl font-semibold mb-4">Contact</h3>
+            <p class="text-xl mb-2">Jamal</p>
+            <p class="text-2xl font-semibold text-desert mb-4">📞 06 04 30 15 45</p>
+            <p class="text-white/60">📧 randopedia@randopedia.org</p>
+            <div class="mt-8 pt-8 border-t border-white/10 text-white/40 text-sm">
+                <p>© 2025 Club Randopedia. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
