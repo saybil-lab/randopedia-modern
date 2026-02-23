@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Club Randopedia - Grande Escapade du Sud 2025</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -29,9 +30,6 @@
     <style>
         .gradient-overlay {
             background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);
-        }
-        .day-card:hover {
-            transform: translateY(-4px);
         }
     </style>
 </head>
@@ -96,159 +94,329 @@
 
     <!-- Programme -->
     <section class="py-20 px-4 bg-white">
-        <div class="max-w-5xl mx-auto">
+        <div class="max-w-4xl mx-auto">
             <h2 class="font-display text-3xl md:text-4xl font-semibold text-center mb-16">Programme détaillé</h2>
             
-            <!-- Day 1 -->
-            <div class="day-card bg-sand/30 rounded-2xl overflow-hidden mb-6 transition-all duration-300 border border-desert/20">
-                <img src="https://images.unsplash.com/photo-1528821154947-1aa3d1b74941?q=80&w=1200" alt="Dunes de Merzouga au coucher du soleil" class="w-full h-48 object-cover">
-                <div class="p-8">
-                <div class="flex flex-col md:flex-row md:items-start gap-6">
-                    <div class="flex-shrink-0 text-center md:text-left">
-                        <span class="inline-block bg-terracotta text-white text-sm font-bold px-4 py-2 rounded-full">JOUR 1</span>
-                        <p class="text-night/60 mt-2 font-medium">Mar. 25 mars</p>
-                    </div>
-                    <div class="flex-grow">
-                        <h3 class="font-display text-2xl font-semibold mb-4">Rabat → Errachidia → Merzouga</h3>
-                        <div class="space-y-3 text-night/70">
-                            <p><span class="font-semibold text-night">07h30</span> — Rendez-vous à l'aéroport de Rabat-Salé</p>
-                            <p><span class="font-semibold text-night">09h00</span> — Décollage vol RAM vers Errachidia</p>
-                            <p><span class="font-semibold text-night">10h30</span> — Arrivée à Errachidia, accueil et transfert</p>
-                            <p><span class="font-semibold text-night">12h30</span> — Déjeuner à Erfoud, porte du désert</p>
-                            <p><span class="font-semibold text-night">14h30</span> — Visite du musée des fossiles</p>
-                            <p><span class="font-semibold text-night">16h00</span> — Installation à l'auberge de Merzouga</p>
-                            <p><span class="font-semibold text-night">18h30</span> — Randonnée dans les dunes pour le coucher de soleil</p>
-                            <p><span class="font-semibold text-night">20h30</span> — Dîner et soirée Gnawa sous les étoiles</p>
+            <div class="space-y-4" x-data="{ openDay: 1 }">
+                
+                <!-- Day 1 -->
+                <div class="border border-desert/30 rounded-2xl overflow-hidden bg-sand/20">
+                    <button @click="openDay = openDay === 1 ? null : 1" class="w-full px-6 py-5 flex items-center justify-between hover:bg-sand/30 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <span class="bg-terracotta text-white text-sm font-bold px-3 py-1 rounded-full">J1</span>
+                            <div class="text-left">
+                                <h3 class="font-display text-xl font-semibold">Rabat → Errachidia → Merzouga</h3>
+                                <p class="text-night/60 text-sm">Mardi 25 mars</p>
+                            </div>
                         </div>
-                        <div class="mt-4 flex items-center text-desert">
-                            <span class="text-xl mr-2">🏨</span>
-                            <span class="font-medium">Nuit à Merzouga</span>
+                        <svg class="w-6 h-6 text-desert transition-transform" :class="{ 'rotate-180': openDay === 1 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div x-show="openDay === 1" x-collapse>
+                        <div class="px-6 pb-6 space-y-4">
+                            <!-- Activity: Vol -->
+                            <div class="flex gap-4 bg-white rounded-xl p-4 shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=400" alt="Avion" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                                <div>
+                                    <p class="text-sm text-terracotta font-medium">09h00 - 10h30</p>
+                                    <h4 class="font-semibold">✈️ Vol Rabat → Errachidia</h4>
+                                    <p class="text-night/60 text-sm">Décollage de l'aéroport Rabat-Salé, arrivée à Errachidia</p>
+                                </div>
+                            </div>
+                            <!-- Activity: Musée fossiles -->
+                            <div class="flex gap-4 bg-white rounded-xl p-4 shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1605552054084-d0a99fdb19f6?q=80&w=400" alt="Fossiles" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                                <div>
+                                    <p class="text-sm text-terracotta font-medium">14h30</p>
+                                    <h4 class="font-semibold">🦴 Musée des Fossiles d'Erfoud</h4>
+                                    <p class="text-night/60 text-sm">Découverte des trésors paléontologiques vieux de millions d'années</p>
+                                </div>
+                            </div>
+                            <!-- Activity: Dunes coucher soleil -->
+                            <div class="flex gap-4 bg-white rounded-xl p-4 shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1528821154947-1aa3d1b74941?q=80&w=400" alt="Dunes coucher soleil" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                                <div>
+                                    <p class="text-sm text-terracotta font-medium">18h30</p>
+                                    <h4 class="font-semibold">🌅 Randonnée dans les dunes</h4>
+                                    <p class="text-night/60 text-sm">Marche ou balade à dos de chameau pour admirer le coucher de soleil sur l'Erg Chebbi</p>
+                                </div>
+                            </div>
+                            <!-- Activity: Soirée Gnawa -->
+                            <div class="flex gap-4 bg-white rounded-xl p-4 shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1511192336575-5a79af67a629?q=80&w=400" alt="Musique Gnawa" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                                <div>
+                                    <p class="text-sm text-terracotta font-medium">20h30</p>
+                                    <h4 class="font-semibold">🎵 Dîner & Soirée Gnawa</h4>
+                                    <p class="text-night/60 text-sm">Repas traditionnel sous les étoiles avec musique Gnawa envoûtante</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2 text-desert pt-2">
+                                <span>🏨</span>
+                                <span class="font-medium">Nuit à Merzouga</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                </div>
-            </div>
 
-            <!-- Day 2 -->
-            <div class="day-card bg-sand/30 rounded-2xl overflow-hidden mb-6 transition-all duration-300 border border-desert/20">
-                <img src="https://images.unsplash.com/photo-1548786811-dd6e453ccca7?q=80&w=1200" alt="Excursion 4x4 dans le désert" class="w-full h-48 object-cover">
-                <div class="p-8">
-                <div class="flex flex-col md:flex-row md:items-start gap-6">
-                    <div class="flex-shrink-0 text-center md:text-left">
-                        <span class="inline-block bg-terracotta text-white text-sm font-bold px-4 py-2 rounded-full">JOUR 2</span>
-                        <p class="text-night/60 mt-2 font-medium">Mer. 26 mars</p>
-                    </div>
-                    <div class="flex-grow">
-                        <h3 class="font-display text-2xl font-semibold mb-4">Merzouga — Immersion Saharienne</h3>
-                        <div class="space-y-3 text-night/70">
-                            <p><span class="font-semibold text-night">06h30</span> — Lever de soleil sur les dunes (optionnel)</p>
-                            <p><span class="font-semibold text-night">08h00</span> — Petit-déjeuner à l'auberge</p>
-                            <p><span class="font-semibold text-night">09h30</span> — Excursion 4x4 dans le désert – traces du Paris-Dakar</p>
-                            <p class="pl-8 text-sm">• Village de Khamilia (musique Gnawa)<br>• Pause thé chez les nomades<br>• Découverte des oasis cachées</p>
-                            <p><span class="font-semibold text-night">13h00</span> — Déjeuner à Rissani – Medfouna (pizza berbère)</p>
-                            <p><span class="font-semibold text-night">15h00</span> — Visite du souk et du mausolée Moulay Ali Cherif</p>
-                            <p><span class="font-semibold text-night">17h00</span> — Retour à Merzouga, temps libre</p>
-                            <p><span class="font-semibold text-night">20h00</span> — Dîner à l'auberge</p>
+                <!-- Day 2 -->
+                <div class="border border-desert/30 rounded-2xl overflow-hidden bg-sand/20">
+                    <button @click="openDay = openDay === 2 ? null : 2" class="w-full px-6 py-5 flex items-center justify-between hover:bg-sand/30 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <span class="bg-terracotta text-white text-sm font-bold px-3 py-1 rounded-full">J2</span>
+                            <div class="text-left">
+                                <h3 class="font-display text-xl font-semibold">Merzouga — Immersion Saharienne</h3>
+                                <p class="text-night/60 text-sm">Mercredi 26 mars</p>
+                            </div>
                         </div>
-                        <div class="mt-4 flex items-center text-desert">
-                            <span class="text-xl mr-2">🏨</span>
-                            <span class="font-medium">Nuit à Merzouga</span>
+                        <svg class="w-6 h-6 text-desert transition-transform" :class="{ 'rotate-180': openDay === 2 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div x-show="openDay === 2" x-collapse>
+                        <div class="px-6 pb-6 space-y-4">
+                            <!-- Activity: Lever soleil -->
+                            <div class="flex gap-4 bg-white rounded-xl p-4 shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1507400492013-162706c8c05e?q=80&w=400" alt="Lever de soleil désert" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                                <div>
+                                    <p class="text-sm text-terracotta font-medium">06h30</p>
+                                    <h4 class="font-semibold">🌄 Lever de soleil sur les dunes</h4>
+                                    <p class="text-night/60 text-sm">Moment magique pour les lève-tôt — les dunes s'embrasent de couleurs</p>
+                                </div>
+                            </div>
+                            <!-- Activity: 4x4 -->
+                            <div class="flex gap-4 bg-white rounded-xl p-4 shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=400" alt="4x4 désert" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                                <div>
+                                    <p class="text-sm text-terracotta font-medium">09h30</p>
+                                    <h4 class="font-semibold">🚙 Excursion 4x4 Paris-Dakar</h4>
+                                    <p class="text-night/60 text-sm">Traversée du désert sur les traces du mythique rallye</p>
+                                </div>
+                            </div>
+                            <!-- Activity: Khamilia -->
+                            <div class="flex gap-4 bg-white rounded-xl p-4 shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?q=80&w=400" alt="Village berbère" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                                <div>
+                                    <p class="text-sm text-terracotta font-medium">11h00</p>
+                                    <h4 class="font-semibold">🏘️ Village de Khamilia</h4>
+                                    <p class="text-night/60 text-sm">Berceau de la musique Gnawa, rencontre avec les habitants</p>
+                                </div>
+                            </div>
+                            <!-- Activity: Thé nomades -->
+                            <div class="flex gap-4 bg-white rounded-xl p-4 shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?q=80&w=400" alt="Thé à la menthe" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                                <div>
+                                    <p class="text-sm text-terracotta font-medium">12h00</p>
+                                    <h4 class="font-semibold">☕ Pause thé chez les nomades</h4>
+                                    <p class="text-night/60 text-sm">Hospitalité berbère authentique sous la tente traditionnelle</p>
+                                </div>
+                            </div>
+                            <!-- Activity: Medfouna -->
+                            <div class="flex gap-4 bg-white rounded-xl p-4 shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=400" alt="Pizza berbère Medfouna" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                                <div>
+                                    <p class="text-sm text-terracotta font-medium">13h00</p>
+                                    <h4 class="font-semibold">🍕 Déjeuner : Medfouna</h4>
+                                    <p class="text-night/60 text-sm">La fameuse "pizza berbère" de Rissani, spécialité locale</p>
+                                </div>
+                            </div>
+                            <!-- Activity: Souk Rissani -->
+                            <div class="flex gap-4 bg-white rounded-xl p-4 shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1539020140153-e479b8c22e70?q=80&w=400" alt="Souk marocain" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                                <div>
+                                    <p class="text-sm text-terracotta font-medium">15h00</p>
+                                    <h4 class="font-semibold">🛍️ Souk de Rissani</h4>
+                                    <p class="text-night/60 text-sm">Un des plus grands marchés du sud, épices et artisanat</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2 text-desert pt-2">
+                                <span>🏨</span>
+                                <span class="font-medium">Nuit à Merzouga</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                </div>
-            </div>
 
-            <!-- Day 3 -->
-            <div class="day-card bg-sand/30 rounded-2xl overflow-hidden mb-6 transition-all duration-300 border border-desert/20">
-                <img src="https://images.unsplash.com/photo-1569383746724-6f1b882b8f46?q=80&w=1200" alt="Gorges du Todgha" class="w-full h-48 object-cover">
-                <div class="p-8">
-                <div class="flex flex-col md:flex-row md:items-start gap-6">
-                    <div class="flex-shrink-0 text-center md:text-left">
-                        <span class="inline-block bg-terracotta text-white text-sm font-bold px-4 py-2 rounded-full">JOUR 3</span>
-                        <p class="text-night/60 mt-2 font-medium">Jeu. 27 mars</p>
-                    </div>
-                    <div class="flex-grow">
-                        <h3 class="font-display text-2xl font-semibold mb-4">Merzouga → Boumalne Dadès</h3>
-                        <div class="space-y-3 text-night/70">
-                            <p><span class="font-semibold text-night">08h00</span> — Petit-déjeuner et check-out</p>
-                            <p><span class="font-semibold text-night">09h00</span> — Départ vers les Gorges du Todgha</p>
-                            <p><span class="font-semibold text-night">10h30</span> — Balade entre les falaises (300m de haut)</p>
-                            <p><span class="font-semibold text-night">12h30</span> — Déjeuner dans un riad à Tinghir</p>
-                            <p><span class="font-semibold text-night">14h30</span> — Route panoramique des Mille Kasbahs</p>
-                            <p><span class="font-semibold text-night">16h30</span> — Randonnée Vallée du Dadès (1h30)</p>
-                            <p class="pl-8 text-sm">• Canyon spectaculaire<br>• Formation "Pattes de Singe"<br>• Kasbahs abandonnées</p>
-                            <p><span class="font-semibold text-night">19h00</span> — Installation à la Kasbah</p>
-                            <p><span class="font-semibold text-night">20h30</span> — Dîner avec animation folklorique</p>
+                <!-- Day 3 -->
+                <div class="border border-desert/30 rounded-2xl overflow-hidden bg-sand/20">
+                    <button @click="openDay = openDay === 3 ? null : 3" class="w-full px-6 py-5 flex items-center justify-between hover:bg-sand/30 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <span class="bg-terracotta text-white text-sm font-bold px-3 py-1 rounded-full">J3</span>
+                            <div class="text-left">
+                                <h3 class="font-display text-xl font-semibold">Merzouga → Boumalne Dadès</h3>
+                                <p class="text-night/60 text-sm">Jeudi 27 mars</p>
+                            </div>
                         </div>
-                        <div class="mt-4 flex items-center text-desert">
-                            <span class="text-xl mr-2">🏨</span>
-                            <span class="font-medium">Nuit à Boumalne Dadès</span>
+                        <svg class="w-6 h-6 text-desert transition-transform" :class="{ 'rotate-180': openDay === 3 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div x-show="openDay === 3" x-collapse>
+                        <div class="px-6 pb-6 space-y-4">
+                            <!-- Activity: Gorges Todgha -->
+                            <div class="flex gap-4 bg-white rounded-xl p-4 shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1569383746724-6f1b882b8f46?q=80&w=400" alt="Gorges du Todgha" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                                <div>
+                                    <p class="text-sm text-terracotta font-medium">10h30</p>
+                                    <h4 class="font-semibold">🏔️ Gorges du Todgha</h4>
+                                    <p class="text-night/60 text-sm">Falaises vertigineuses de 300m, paradis de l'escalade</p>
+                                </div>
+                            </div>
+                            <!-- Activity: Riad Tinghir -->
+                            <div class="flex gap-4 bg-white rounded-xl p-4 shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1577043758090-4c1c1884d5fc?q=80&w=400" alt="Riad marocain" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                                <div>
+                                    <p class="text-sm text-terracotta font-medium">12h30</p>
+                                    <h4 class="font-semibold">🍽️ Déjeuner dans un Riad</h4>
+                                    <p class="text-night/60 text-sm">Cuisine traditionnelle dans un cadre authentique à Tinghir</p>
+                                </div>
+                            </div>
+                            <!-- Activity: Route Kasbahs -->
+                            <div class="flex gap-4 bg-white rounded-xl p-4 shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1548786811-dd6e453ccca7?q=80&w=400" alt="Route des Kasbahs" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                                <div>
+                                    <p class="text-sm text-terracotta font-medium">14h30</p>
+                                    <h4 class="font-semibold">🛤️ Route des Mille Kasbahs</h4>
+                                    <p class="text-night/60 text-sm">Route panoramique légendaire à travers les forteresses berbères</p>
+                                </div>
+                            </div>
+                            <!-- Activity: Randonnée Dadès -->
+                            <div class="flex gap-4 bg-white rounded-xl p-4 shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1682686581264-c47e25e61d95?q=80&w=400" alt="Vallée du Dadès" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                                <div>
+                                    <p class="text-sm text-terracotta font-medium">16h30</p>
+                                    <h4 class="font-semibold">🥾 Randonnée Vallée du Dadès</h4>
+                                    <p class="text-night/60 text-sm">1h30 de marche : canyon, formation "Pattes de Singe", kasbahs abandonnées</p>
+                                </div>
+                            </div>
+                            <!-- Activity: Soirée folklorique -->
+                            <div class="flex gap-4 bg-white rounded-xl p-4 shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?q=80&w=400" alt="Danse folklorique" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                                <div>
+                                    <p class="text-sm text-terracotta font-medium">20h30</p>
+                                    <h4 class="font-semibold">💃 Dîner & Animation folklorique</h4>
+                                    <p class="text-night/60 text-sm">Soirée festive avec danses et musiques traditionnelles berbères</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2 text-desert pt-2">
+                                <span>🏨</span>
+                                <span class="font-medium">Nuit à Boumalne Dadès</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                </div>
-            </div>
 
-            <!-- Day 4 -->
-            <div class="day-card bg-sand/30 rounded-2xl overflow-hidden mb-6 transition-all duration-300 border border-desert/20">
-                <img src="https://images.unsplash.com/photo-1590073242678-70ee3fc28f8e?q=80&w=1200" alt="Kasbah Aït Ben Haddou, Ouarzazate" class="w-full h-48 object-cover">
-                <div class="p-8">
-                <div class="flex flex-col md:flex-row md:items-start gap-6">
-                    <div class="flex-shrink-0 text-center md:text-left">
-                        <span class="inline-block bg-terracotta text-white text-sm font-bold px-4 py-2 rounded-full">JOUR 4</span>
-                        <p class="text-night/60 mt-2 font-medium">Ven. 28 mars</p>
-                    </div>
-                    <div class="flex-grow">
-                        <h3 class="font-display text-2xl font-semibold mb-4">Boumalne Dadès → Ouarzazate</h3>
-                        <div class="space-y-3 text-night/70">
-                            <p><span class="font-semibold text-night">08h30</span> — Petit-déjeuner et check-out</p>
-                            <p><span class="font-semibold text-night">09h30</span> — Route vers Ouarzazate, "Hollywood africaine"</p>
-                            <p><span class="font-semibold text-night">10h30</span> — Arrêt Vallée des Roses (selon saison)</p>
-                            <p><span class="font-semibold text-night">12h00</span> — Visite Studios Atlas</p>
-                            <p class="pl-8 text-sm">Décors de Gladiator, Game of Thrones, Lawrence d'Arabie</p>
-                            <p><span class="font-semibold text-night">13h30</span> — Déjeuner en ville</p>
-                            <p><span class="font-semibold text-night">15h30</span> — Visite Kasbah de Taourirt</p>
-                            <p><span class="font-semibold text-night">17h00</span> — Temps libre, shopping artisanal</p>
-                            <p><span class="font-semibold text-night">20h30</span> — Dîner</p>
+                <!-- Day 4 -->
+                <div class="border border-desert/30 rounded-2xl overflow-hidden bg-sand/20">
+                    <button @click="openDay = openDay === 4 ? null : 4" class="w-full px-6 py-5 flex items-center justify-between hover:bg-sand/30 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <span class="bg-terracotta text-white text-sm font-bold px-3 py-1 rounded-full">J4</span>
+                            <div class="text-left">
+                                <h3 class="font-display text-xl font-semibold">Boumalne Dadès → Ouarzazate</h3>
+                                <p class="text-night/60 text-sm">Vendredi 28 mars</p>
+                            </div>
                         </div>
-                        <div class="mt-4 flex items-center text-desert">
-                            <span class="text-xl mr-2">🏨</span>
-                            <span class="font-medium">Nuit à Ouarzazate</span>
+                        <svg class="w-6 h-6 text-desert transition-transform" :class="{ 'rotate-180': openDay === 4 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div x-show="openDay === 4" x-collapse>
+                        <div class="px-6 pb-6 space-y-4">
+                            <!-- Activity: Vallée des Roses -->
+                            <div class="flex gap-4 bg-white rounded-xl p-4 shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=400" alt="Vallée des Roses" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                                <div>
+                                    <p class="text-sm text-terracotta font-medium">10h30</p>
+                                    <h4 class="font-semibold">🌹 Vallée des Roses</h4>
+                                    <p class="text-night/60 text-sm">Paysages parfumés (selon la saison de floraison)</p>
+                                </div>
+                            </div>
+                            <!-- Activity: Studios Atlas -->
+                            <div class="flex gap-4 bg-white rounded-xl p-4 shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=400" alt="Studios de cinéma" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                                <div>
+                                    <p class="text-sm text-terracotta font-medium">12h00</p>
+                                    <h4 class="font-semibold">🎬 Studios Atlas</h4>
+                                    <p class="text-night/60 text-sm">Décors de Gladiator, Game of Thrones, Lawrence d'Arabie</p>
+                                </div>
+                            </div>
+                            <!-- Activity: Kasbah Taourirt -->
+                            <div class="flex gap-4 bg-white rounded-xl p-4 shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1590073242678-70ee3fc28f8e?q=80&w=400" alt="Kasbah Taourirt" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                                <div>
+                                    <p class="text-sm text-terracotta font-medium">15h30</p>
+                                    <h4 class="font-semibold">🏰 Kasbah de Taourirt</h4>
+                                    <p class="text-night/60 text-sm">Forteresse historique du 17e siècle, architecture berbère</p>
+                                </div>
+                            </div>
+                            <!-- Activity: Shopping -->
+                            <div class="flex gap-4 bg-white rounded-xl p-4 shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1531384370597-8590413be50a?q=80&w=400" alt="Artisanat marocain" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                                <div>
+                                    <p class="text-sm text-terracotta font-medium">17h00</p>
+                                    <h4 class="font-semibold">🛒 Shopping artisanal</h4>
+                                    <p class="text-night/60 text-sm">Temps libre pour découvrir les boutiques et ramener des souvenirs</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2 text-desert pt-2">
+                                <span>🏨</span>
+                                <span class="font-medium">Nuit à Ouarzazate</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                </div>
-            </div>
 
-            <!-- Day 5 -->
-            <div class="day-card bg-sand/30 rounded-2xl overflow-hidden transition-all duration-300 border border-desert/20">
-                <img src="https://images.unsplash.com/photo-1536148935331-408321065b18?q=80&w=1200" alt="Vallée du Drâa et palmeraie" class="w-full h-48 object-cover">
-                <div class="p-8">
-                <div class="flex flex-col md:flex-row md:items-start gap-6">
-                    <div class="flex-shrink-0 text-center md:text-left">
-                        <span class="inline-block bg-terracotta text-white text-sm font-bold px-4 py-2 rounded-full">JOUR 5</span>
-                        <p class="text-night/60 mt-2 font-medium">Sam. 29 mars</p>
-                    </div>
-                    <div class="flex-grow">
-                        <h3 class="font-display text-2xl font-semibold mb-4">Ouarzazate → Zagora → Casablanca</h3>
-                        <div class="space-y-3 text-night/70">
-                            <p><span class="font-semibold text-night">07h00</span> — Petit-déjeuner matinal et check-out</p>
-                            <p><span class="font-semibold text-night">07h30</span> — Départ vers Zagora via la vallée du Drâa</p>
-                            <p><span class="font-semibold text-night">09h30</span> — Traversée de la plus grande palmeraie du Maroc</p>
-                            <p><span class="font-semibold text-night">11h00</span> — Arrivée à Zagora – photo devant "Tombouctou 52 jours"</p>
-                            <p><span class="font-semibold text-night">12h00</span> — Déjeuner à Zagora</p>
-                            <p><span class="font-semibold text-night">09h30</span> — Enregistrement à l'aéroport de Zagora</p>
-                            <p><span class="font-semibold text-night">11h00</span> — Décollage vol RAM vers Casablanca</p>
-                            <p><span class="font-semibold text-night">12h00</span> — Arrivée à Casablanca</p>
+                <!-- Day 5 -->
+                <div class="border border-desert/30 rounded-2xl overflow-hidden bg-sand/20">
+                    <button @click="openDay = openDay === 5 ? null : 5" class="w-full px-6 py-5 flex items-center justify-between hover:bg-sand/30 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <span class="bg-terracotta text-white text-sm font-bold px-3 py-1 rounded-full">J5</span>
+                            <div class="text-left">
+                                <h3 class="font-display text-xl font-semibold">Ouarzazate → Zagora → Casablanca</h3>
+                                <p class="text-night/60 text-sm">Samedi 29 mars</p>
+                            </div>
                         </div>
-                        <div class="mt-4 flex items-center text-terracotta">
-                            <span class="text-xl mr-2">✈️</span>
-                            <span class="font-medium">Fin du voyage</span>
+                        <svg class="w-6 h-6 text-desert transition-transform" :class="{ 'rotate-180': openDay === 5 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div x-show="openDay === 5" x-collapse>
+                        <div class="px-6 pb-6 space-y-4">
+                            <!-- Activity: Vallée du Drâa -->
+                            <div class="flex gap-4 bg-white rounded-xl p-4 shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1536148935331-408321065b18?q=80&w=400" alt="Vallée du Drâa" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                                <div>
+                                    <p class="text-sm text-terracotta font-medium">07h30</p>
+                                    <h4 class="font-semibold">🌴 Vallée du Drâa</h4>
+                                    <p class="text-night/60 text-sm">Traversée de la plus grande palmeraie du Maroc</p>
+                                </div>
+                            </div>
+                            <!-- Activity: Panneau Zagora -->
+                            <div class="flex gap-4 bg-white rounded-xl p-4 shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=400" alt="Panneau Zagora Tombouctou" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                                <div>
+                                    <p class="text-sm text-terracotta font-medium">09h30</p>
+                                    <h4 class="font-semibold">📍 Zagora - "Tombouctou 52 jours"</h4>
+                                    <p class="text-night/60 text-sm">Photo souvenir devant le célèbre panneau mythique</p>
+                                </div>
+                            </div>
+                            <!-- Activity: Vol retour -->
+                            <div class="flex gap-4 bg-white rounded-xl p-4 shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=400" alt="Avion" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                                <div>
+                                    <p class="text-sm text-terracotta font-medium">11h00</p>
+                                    <h4 class="font-semibold">✈️ Vol Zagora → Casablanca</h4>
+                                    <p class="text-night/60 text-sm">Décollage et retour vers Casablanca</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2 text-terracotta pt-2">
+                                <span>✈️</span>
+                                <span class="font-medium">Fin du voyage</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                </div>
+
             </div>
         </div>
     </section>
